@@ -7,7 +7,8 @@ application has been provided, with basic routing implemented and the MVC struct
 directory.
 
 Your task is to complete the implementation so that a user can add a new report with a maximum of 3 expenses
-to the database. When the report has been added, the table should be updated to reflect the new record.
+to the database. When a report has been added, the page should be show a table of reports which adds new rows
+each time a new report is created. 
 
 ## Instructions
 1. The first step that you will want to take is to implement a new route so that when the form is submitted 
