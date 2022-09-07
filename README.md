@@ -27,12 +27,12 @@ to the database. When the report has been added, the table should be updated to 
 7. Additionally, please note the following changes to the code:
 
 ````
-    // to create and use a new db connection
-    $db = App::db();
-    $db->prepare();
-    
-    // to return a view and pass params from the controller
-    return View::make('index', ['foo' => $foo])
+// to create and use a new db connection
+$db = App::db();
+$db->prepare();
+
+// to return a view and pass params from the controller
+return View::make('index', ['foo' => $foo])
 ````
 ## Extra Mile
 1. Refactor the code so that the database logic is within it's own `Model`:
@@ -47,20 +47,20 @@ to the database. When the report has been added, the table should be updated to 
 2. Create a database, and create the following tables via the sql script below: 
 
 ````
-    CREATE TABLE reports (
-      id int unsigned PRIMARY KEY AUTO_INCREMENT,
-      title varchar(150) NOT NULL,
-      status boolean DEFAULT 0 NOT NULL,
-      date datetime NOT NULL
-    );
+CREATE TABLE reports (
+  id int unsigned PRIMARY KEY AUTO_INCREMENT,
+  title varchar(150) NOT NULL,
+  status boolean DEFAULT 0 NOT NULL,
+  date datetime NOT NULL
+);
 
-    CREATE TABLE expenses (
-      id int unsigned PRIMARY KEY AUTO_INCREMENT,
-      amount DECIMAL(10,2),
-      report_id int unsigned NOT NULL,
-      FOREIGN KEY (report_id) REFERENCES reports (id)
-      ON DELETE CASCADE
-    );
+CREATE TABLE expenses (
+  id int unsigned PRIMARY KEY AUTO_INCREMENT,
+  amount DECIMAL(10,2),
+  report_id int unsigned NOT NULL,
+  FOREIGN KEY (report_id) REFERENCES reports (id)
+  ON DELETE CASCADE
+);
 ````
 3. Create a `.env` file and fill in the Database details.
 4. CD to the project directory and run `composer install`.
