@@ -17,15 +17,15 @@ each time a new report is created.
     it into the database. You should create a row in the `reports` table and 1 - 3 rows in the `expenses` table. 
    1. If the expense is less than or equals to zero, you shouldn't create the expense in the database. 
    2. Think of the creation of the report and expenses as one transaction. Make sure that all database executions are successful before committing to the database. 
-3. Once the data has been successfully written to the database you will need to return a view which shows the updated table.
-4. You will want to pass an additional param to the view (most likely an array), check if the array is not empty,  and then implement some kind of loop in the view file to render each row accordingly. 
-   1. To make it simpler, you can assume that the table only displays reports that have one or more expenses. 
-   2. If you're having a hard time getting the `No of expenses` and `Amount` values to return, you can hardcode a "`-`" 
+3. Once the data has been successfully written to the database you will need to run a sql query to fetch data, and then return a view which shows the updated table.
+   1. You will want to pass the fetched data as an additional param to the view (an array), check if the array is not empty,  and then implement some kind of loop in the view file to render each row accordingly. 
+   2. To make the query simpler, you can assume that the table only displays reports that have one or more expenses. 
+   3. If you're having a hard time getting the `No of expenses` and `Amount` values to return, you can hardcode a "`-`" 
        and just make sure the row is being reflected on the table. 
-5. You will only need to modify the `/public/index.php`, `/views/index.php` and the `ReportController`. 
+4. You will only need to modify the `/public/index.php`, `/views/index.php` and the `ReportController`. 
    Please do not modify the other files. 
-6. Refer to all of the `todo` comments if you need some direction on where to work on next. 
-7. Additionally, please note the following changes to the code:
+5. Refer to all of the `todo` comments if you need some direction on where to work on next. 
+6. Additionally, please note the following changes to the code:
 
 ````
 // to create and use a new db connection
@@ -36,10 +36,10 @@ $db->prepare();
 return View::make('index', ['foo' => $foo])
 ````
 ## Extra Mile
-1. Refactor the code so that the database logic is within it's own `Model`:
-   1. create a `Report` and `Expense` model with methods for `create` and `fetch`
+1. Refactor the code so that the database / business logic is within it's own `Model`:
+   1. create a `Report` and `Expense` model with methods for `create` and `fetchRecords`
    2. `create` should write to the database and return the `id` (Both report and expense model).
-   3. `fetch` should run a `select` query and return the results (as an array) to the `Controller` method.
+   3. `fetchRecords` should run a `select` query and return the results (as an array) to the `Controller` method.
 2. Format the date column so that it follows the following format : `16, Apr 1983`.
 
 ## Setup
