@@ -12,9 +12,9 @@ each time a new report is created.
 
 ## Instructions
 1. The first step that you will want to take is to implement a new route so that when the form is submitted 
-    the data in the POST request can be extracted. 
-2. Next, you will need to create a new method within the `ReportController` to take the user input and then insert
-    it into the database. 
+    the data from the `POST` request can be extracted. 
+2. Next, you will need to create a new method (`store`) within the `ReportController` to take user input and insert
+    it into the database. You should create a row in the `reports` table and 1 - 3 rows in the `expenses` table. 
    1. If the expense is less than or equals to zero, you shouldn't create the expense in the database. 
    2. Think of the creation of the report and expenses as one transaction. Make sure that all database executions are successful before committing to the database. 
 3. Once the data has been successfully written to the database you will need to return a view which shows the updated table.
