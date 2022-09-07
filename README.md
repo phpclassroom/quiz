@@ -14,14 +14,17 @@ to the database. When the report has been added, the table should be updated to 
     the data in the POST request can be extracted. 
 2. Next, you will need to create a new method within the `ReportController` to take the user input and then insert
     it into the database. 
+   1. If the expense is less than or equals to zero, you shouldn't create the expense in the database. 
+   2. Think of the creation of the report and expenses as one transaction. Make sure that all database executions are successful before committing to the database. 
 3. Once the data has been successfully written to the database you will need to return a view which shows the updated table.
 4. You will want to pass an additional param to the view (most likely an array), check if the array is not empty,  and then implement some kind of loop in the view file to render each row accordingly. 
-5. If you're having a hard time getting the `No of expenses` and `Amount` values to return, you can hardcode a "`-`" 
-    and just make sure the row is being reflected on the table. 
-6. You will only need to modify the `/public/index.php`, `/views/index.php` and the `ReportController`. 
+   1. To make it simpler, you can assume that the table only displays reports that have one or more expenses. 
+   2. If you're having a hard time getting the `No of expenses` and `Amount` values to return, you can hardcode a "`-`" 
+       and just make sure the row is being reflected on the table. 
+5. You will only need to modify the `/public/index.php`, `/views/index.php` and the `ReportController`. 
    Please do not modify the other files. 
-7. Refer to all of the `todo` comments if you need some direction on where to work on next. 
-8. Additionally, please note the following changes to the code:
+6. Refer to all of the `todo` comments if you need some direction on where to work on next. 
+7. Additionally, please note the following changes to the code:
 
 
     // to create and use a new db connection
