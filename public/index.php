@@ -17,7 +17,7 @@ define('VIEW_PATH', __DIR__ . '/../views');
 $router = new Router();
 
 $router
-    ->get('/', [ReportController::class, 'index'])
+    ->get('/', [ReportController::class, 'index']);
     /**  todo: CODE GOES HERE */
 
 (new App(
